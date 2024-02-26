@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:preload_page_view/preload_page_view.dart';
 
 import '../../core/storage.dart';
 
@@ -14,7 +15,7 @@ class BoardingScreen extends StatefulWidget {
 }
 
 class _BoardingScreenState extends State<BoardingScreen> {
-  int page = 1;
+  int page = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +35,8 @@ class _BoardingScreenState extends State<BoardingScreen> {
         ],
       ),
       body: SafeArea(
-        child: PageView(
+        child: PreloadPageView(
+          preloadPagesCount: 3,
           onPageChanged: (value) {
             setState(() {
               page = value;

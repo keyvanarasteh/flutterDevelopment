@@ -13,8 +13,8 @@ class LoaderScreen extends StatefulWidget {
 class _LoaderScreenState extends State<LoaderScreen> {
   loadData() async {
     final storage = Storage();
-    final firstLaunch = await storage.isFirstLaunch();
-
+    var firstLaunch = await storage.isFirstLaunch();
+    firstLaunch = true;
     if (firstLaunch) {
       GoRouter.of(context).replace("/boarding");
     } else {

@@ -4,10 +4,12 @@ import '../screens/client/register.dart';
 import '../screens/client/login.dart';
 import '../screens/client/profile.dart';
 import '../screens/core/error.dart';
+import '../screens/core/loader.dart';
 import '../screens/home.dart';
 import '../screens/product/product.dart';
 import '../screens/product/search.dart';
 import '../screens/static/about.dart';
+import '../screens/static/boarding.dart';
 import '../screens/static/contact.dart';
 
 // GoRouter configuration
@@ -16,7 +18,15 @@ final routes = GoRouter(
   routes: [
     GoRoute(
       path: '/',
+      builder: (context, state) => const LoaderScreen(),
+    ),
+    GoRoute(
+      path: '/home',
       builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      path: '/boarding',
+      builder: (context, state) => const BoardingScreen(),
     ),
     GoRoute(
       path: '/login',

@@ -9,6 +9,7 @@ import '../screens/home.dart';
 import '../screens/product/product.dart';
 import '../screens/product/search.dart';
 import '../screens/static/about.dart';
+import '../screens/static/boarding.dart';
 import '../screens/static/contact.dart';
 
 // GoRouter configuration
@@ -18,6 +19,10 @@ final routes = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) => const LoaderScreen(),
+    ),
+    GoRoute(
+      path: '/boarding',
+      builder: (context, state) => const BoardingScreen(),
     ),
     GoRoute(
       path: '/home',

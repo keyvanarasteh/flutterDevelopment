@@ -1,6 +1,6 @@
 {
-    "name": "adv_app",
-    "short_name": "adv_app",
+    "name": "flutter_advanced_dev",
+    "short_name": "flutter_advanced_dev",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

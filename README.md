@@ -1,3 +1,3 @@
-# adv_app
+# flutter_advanced_dev
 
 A new Flutter project.

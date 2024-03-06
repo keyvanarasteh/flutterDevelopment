@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../bloc/client/client_cubit.dart';
 import '../../core/storage.dart';
 
 class LoaderScreen extends StatefulWidget {
@@ -13,8 +11,6 @@ class LoaderScreen extends StatefulWidget {
 }
 
 class _LoaderScreenState extends State<LoaderScreen> {
-  late ClientCubit clientCubit;
-
   loadApp() async {
     final storage = Storage();
     final firstLaunch = await storage.isFirstLaunch();
@@ -29,8 +25,6 @@ class _LoaderScreenState extends State<LoaderScreen> {
       } else {
         darkMode = true;
       }
-
-      clientCubit.setThemeMode(darkMode);
 
       // varsayilan sistemdeki dili okumak kodlari
       final String defaultLocale =
@@ -48,6 +42,7 @@ class _LoaderScreenState extends State<LoaderScreen> {
         lang = "en";
       }
 
+<<<<<<< HEAD
       clientCubit.setLanguage(lang);
 
       // await storage.setSettings(darkMode: darkMode, language: lang);
@@ -55,6 +50,9 @@ class _LoaderScreenState extends State<LoaderScreen> {
 >>>>>>> parent of acd7694 (read system language and themeMode, load and save that settings in loader)
 =======
 >>>>>>> parent of acd7694 (read system language and themeMode, load and save that settings in loader)
+=======
+      await storage.setSettings(darkMode: darkMode, language: lang);
+>>>>>>> parent of a9c3115 (latest codes)
       // tanitima gonder
       // navigate to boarding screen
       GoRouter.of(context).replace("/boarding");
@@ -63,6 +61,7 @@ class _LoaderScreenState extends State<LoaderScreen> {
 <<<<<<< HEAD
       // ayarlari yukliyelim
       final settings = await storage.getSettings();
+<<<<<<< HEAD
 
       clientCubit.setLanguage(settings["language"]);
       clientCubit.setThemeMode(settings["darkMode"]);
@@ -70,6 +69,8 @@ class _LoaderScreenState extends State<LoaderScreen> {
 >>>>>>> parent of acd7694 (read system language and themeMode, load and save that settings in loader)
 =======
 >>>>>>> parent of acd7694 (read system language and themeMode, load and save that settings in loader)
+=======
+>>>>>>> parent of a9c3115 (latest codes)
       // ana ekrana git
       // navigate to home screen
       GoRouter.of(context).replace("/home");
@@ -79,7 +80,6 @@ class _LoaderScreenState extends State<LoaderScreen> {
   @override
   void initState() {
     super.initState();
-    clientCubit = context.read<ClientCubit>();
     loadApp();
   }
 

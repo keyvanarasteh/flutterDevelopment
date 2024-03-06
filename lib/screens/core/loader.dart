@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -19,10 +17,10 @@ class _LoaderScreenState extends State<LoaderScreen> {
 
   loadApp() async {
     final storage = Storage();
-    // await storage.clearStorage();
     final firstLaunch = await storage.isFirstLaunch();
 
     if (firstLaunch) {
+<<<<<<< HEAD
       // varsayilan tema modunu oku sistemden
       final darkMode;
       if (ThemeMode.system == ThemeMode.light) {
@@ -52,15 +50,20 @@ class _LoaderScreenState extends State<LoaderScreen> {
       clientCubit.setLanguage(lang);
 
       // await storage.setSettings(darkMode: darkMode, language: lang);
+=======
+>>>>>>> parent of acd7694 (read system language and themeMode, load and save that settings in loader)
       // tanitima gonder
       // navigate to boarding screen
       GoRouter.of(context).replace("/boarding");
     } else {
+<<<<<<< HEAD
       // ayarlari yukliyelim
       final settings = await storage.getSettings();
 
       clientCubit.setLanguage(settings["language"]);
       clientCubit.setThemeMode(settings["darkMode"]);
+=======
+>>>>>>> parent of acd7694 (read system language and themeMode, load and save that settings in loader)
       // ana ekrana git
       // navigate to home screen
       GoRouter.of(context).replace("/home");

@@ -14,6 +14,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -33,6 +34,11 @@ class MainApp extends StatelessWidget {
           routerConfig: routes,
         );
       }),
+=======
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: routes,
+>>>>>>> parent of acd7694 (read system language and themeMode, load and save that settings in loader)
     );
   }
 }

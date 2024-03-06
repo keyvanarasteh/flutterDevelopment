@@ -21,6 +21,7 @@ class _LoaderScreenState extends State<LoaderScreen> {
 
     if (firstLaunch) {
 <<<<<<< HEAD
+<<<<<<< HEAD
       // varsayilan tema modunu oku sistemden
       final darkMode;
       if (ThemeMode.system == ThemeMode.light) {
@@ -52,16 +53,21 @@ class _LoaderScreenState extends State<LoaderScreen> {
       // await storage.setSettings(darkMode: darkMode, language: lang);
 =======
 >>>>>>> parent of acd7694 (read system language and themeMode, load and save that settings in loader)
+=======
+>>>>>>> parent of acd7694 (read system language and themeMode, load and save that settings in loader)
       // tanitima gonder
       // navigate to boarding screen
       GoRouter.of(context).replace("/boarding");
     } else {
+<<<<<<< HEAD
 <<<<<<< HEAD
       // ayarlari yukliyelim
       final settings = await storage.getSettings();
 
       clientCubit.setLanguage(settings["language"]);
       clientCubit.setThemeMode(settings["darkMode"]);
+=======
+>>>>>>> parent of acd7694 (read system language and themeMode, load and save that settings in loader)
 =======
 >>>>>>> parent of acd7694 (read system language and themeMode, load and save that settings in loader)
       // ana ekrana git

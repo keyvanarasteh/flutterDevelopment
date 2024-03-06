@@ -1,8 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../bloc/client/client_cubit.dart';
 import '../../core/storage.dart';
 
 class LoaderScreen extends StatefulWidget {
@@ -13,6 +15,8 @@ class LoaderScreen extends StatefulWidget {
 }
 
 class _LoaderScreenState extends State<LoaderScreen> {
+  late ClientCubit clientCubit;
+
   loadApp() async {
     final storage = Storage();
     // await storage.clearStorage();
@@ -26,6 +30,8 @@ class _LoaderScreenState extends State<LoaderScreen> {
       } else {
         darkMode = true;
       }
+
+      clientCubit.setThemeMode(darkMode);
 
       // varsayilan sistemdeki dili okumak kodlari
       final String defaultLocale =
@@ -43,13 +49,18 @@ class _LoaderScreenState extends State<LoaderScreen> {
         lang = "en";
       }
 
-      await storage.setSettings(darkMode: darkMode, language: lang);
+      clientCubit.setLanguage(lang);
+
+      // await storage.setSettings(darkMode: darkMode, language: lang);
       // tanitima gonder
       // navigate to boarding screen
       GoRouter.of(context).replace("/boarding");
     } else {
       // ayarlari yukliyelim
       final settings = await storage.getSettings();
+
+      clientCubit.setLanguage(settings["language"]);
+      clientCubit.setThemeMode(settings["darkMode"]);
       // ana ekrana git
       // navigate to home screen
       GoRouter.of(context).replace("/home");
@@ -59,6 +70,7 @@ class _LoaderScreenState extends State<LoaderScreen> {
   @override
   void initState() {
     super.initState();
+    clientCubit = context.read<ClientCubit>();
     loadApp();
   }
 

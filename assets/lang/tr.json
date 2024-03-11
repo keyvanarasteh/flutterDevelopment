@@ -1,0 +1,13 @@
+{
+    "home_title": "E-Ticaret Uygulamam",
+    "add_to_basket": "Sepete Ekle",
+    "products": "Urunler",
+    "favorites": "Favoriler",
+    "cart": "Sepet",
+    "in-stock": "Mevcut",
+    "not-available": "Tukendi",
+    "added-to-cart": "Urun Sepete Eklendi.",
+    "remove-favorite": "Favoriden Kaldir",
+    "remove-cart": "Sepetten Kaldir",
+    "cart-empty": "Sepetinizde hic urun bulunmamaktadir."
+}

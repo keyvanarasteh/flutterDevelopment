@@ -5,6 +5,7 @@ import '../screens/client/login.dart';
 import '../screens/client/profile.dart';
 import '../screens/core/error.dart';
 import '../screens/core/loader.dart';
+import '../screens/core/settings.dart';
 import '../screens/home.dart';
 import '../screens/product/cart.dart';
 import '../screens/product/favorites.dart';
@@ -26,6 +27,10 @@ final routes = GoRouter(
     GoRoute(
       path: '/home',
       builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      path: '/settings',
+      builder: (context, state) => const SettingsScreen(),
     ),
     GoRoute(
       path: '/boarding',

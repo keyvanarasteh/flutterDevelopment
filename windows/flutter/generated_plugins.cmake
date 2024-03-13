@@ -5,6 +5,8 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   flutter_localization
   flutter_secure_storage_windows
+  geolocator_windows
+  permission_handler_windows
   url_launcher_windows
 )
 

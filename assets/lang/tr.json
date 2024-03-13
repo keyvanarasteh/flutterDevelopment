@@ -9,5 +9,6 @@
     "added-to-cart": "Urun Sepete Eklendi.",
     "remove-favorite": "Favoriden Kaldir",
     "remove-cart": "Sepetten Kaldir",
-    "cart-empty": "Sepetinizde hic urun bulunmamaktadir."
+    "cart-empty": "Sepetinizde hic urun bulunmamaktadir.",
+    "settings": "Ayarlar"
 }

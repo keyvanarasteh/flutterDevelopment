@@ -89,6 +89,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     child: Text(
                         AppLocalizations.of(context).getTranslate("products"))),
+                const Gap(20),
+                ElevatedButton(
+                    onPressed: () {
+                      GoRouter.of(context).push("/settings");
+                    },
+                    child: Text(
+                        AppLocalizations.of(context).getTranslate("settings"))),
                 SizedBox(height: 50),
                 Text("LOVE U ALL"),
                 Icon(Icons.favorite, size: 90, color: Colors.red),

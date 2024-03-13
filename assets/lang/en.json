@@ -9,5 +9,6 @@
     "added-to-cart": "Product Added to Cart.",
     "remove-favorite": "Remove from Favorites",
     "remove-cart": "Remove from cart",
-    "cart-empty": "No products added to cart."
+    "cart-empty": "No products added to cart.",
+    "settings": "Settings"
 }

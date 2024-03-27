@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -29,6 +30,75 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<ClientCubit, ClientState>(builder: (context, state) {
       return Scaffold(
+        drawer: Drawer(
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: [
+              const DrawerHeader(
+                child: Text('Drawer Header'),
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.home,
+                ),
+                title: const Text('Home'),
+                selected: true,
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.train,
+                ),
+                title: const Text('Hakkimizda'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              const Divider(),
+              ListTile(
+                leading: Icon(
+                  Icons.home,
+                ),
+                title: const Text('Kategoriler'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.train,
+                ),
+                title: const Text('Markalar'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(
+                  Icons.train,
+                ),
+                title: const Text('Iletisim'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              SwitchListTile(
+                value: clientCubit.state.darkMode,
+                onChanged: (value) {
+                  clientCubit.changeDarkMode(darkMode: value);
+                },
+                secondary: clientCubit.state.darkMode
+                    ? const Icon(Icons.sunny)
+                    : const Icon(Icons.nightlight),
+                title: const Text('Gece Modu'),
+              ),
+            ],
+          ),
+        ),
         appBar: AppBar(
           title: Text(AppLocalizations.of(context).getTranslate("home_title")),
           actions: [
@@ -96,10 +166,68 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     child: Text(
                         AppLocalizations.of(context).getTranslate("settings"))),
-                SizedBox(height: 50),
-                Text("LOVE U ALL"),
-                Icon(Icons.favorite, size: 90, color: Colors.red),
-                Text("Keyvan Arasteh."),
+                const SizedBox(height: 50),
+                OutlinedButton(
+                    onPressed: () => context.push("/preview"),
+                    child: const Text("Temalandirma")),
+                const Gap(10),
+                OutlinedButton(
+                  onPressed: () {
+                    showModalBottomSheet<void>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Container(
+                          // height: 200,
+                          // color: Colors.white,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Gap(40),
+                              Text(
+                                'This is a BottomSheet',
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              SwitchListTile(
+                                value: clientCubit.state.darkMode,
+                                onChanged: (value) {
+                                  clientCubit.changeDarkMode(darkMode: value);
+                                },
+                                secondary: clientCubit.state.darkMode
+                                    ? const Icon(Icons.sunny)
+                                    : const Icon(Icons.nightlight),
+                                title: const Text('Gece Modu'),
+                              ),
+                              CheckboxListTile(
+                                value: clientCubit.state.darkMode,
+                                onChanged: (value) {
+                                  if (value == null)
+                                    clientCubit.changeDarkMode(darkMode: false);
+                                  else
+                                    clientCubit.changeDarkMode(darkMode: value);
+                                },
+                                secondary: clientCubit.state.darkMode
+                                    ? const Icon(Icons.sunny)
+                                    : const Icon(Icons.nightlight),
+                                title: const Text('Gece Modu'),
+                              ),
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('Close BottomSheet'),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                  child: const Text("Temel Ayarlar"),
+                ),
+                const SizedBox(height: 50),
+                const Text("LOVE U ALL"),
+                const Icon(Icons.favorite, size: 90, color: Colors.red),
+                const Text("Keyvan Arasteh."),
               ],
             ),
           ),

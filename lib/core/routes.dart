@@ -15,6 +15,7 @@ import '../screens/product/search.dart';
 import '../screens/static/about.dart';
 import '../screens/static/boarding.dart';
 import '../screens/static/contact.dart';
+import '../screens/static/preview.dart';
 
 // GoRouter configuration
 final routes = GoRouter(
@@ -23,6 +24,10 @@ final routes = GoRouter(
     GoRoute(
       path: '/',
       builder: (context, state) => const LoaderScreen(),
+    ),
+    GoRoute(
+      path: '/preview',
+      builder: (context, state) => const PreviewScreen(),
     ),
     GoRoute(
       path: '/home',

@@ -11,5 +11,7 @@
     "remove-cart": "Sepetten Kaldir",
     "cart-empty": "Sepetinizde hic urun bulunmamaktadir.",
     "settings": "Ayarlar",
-    "connection-error": "Lutfen Internet Baglantinizi Kontrol Ediniz."
+    "connection-error": "Lutfen Internet Baglantinizi Kontrol Ediniz.",
+    "reload": "Yenile",
+    "select-language": "Lutfen Istediginiz Dili Seciniz:"
 }

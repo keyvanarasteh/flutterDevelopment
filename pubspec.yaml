@@ -53,3 +53,8 @@ flutter:
         - asset: assets/fonts/Poppins-BoldItalic.ttf
           weight: 700
           style: italic
+    - family: "Dancing"
+      fonts:
+      - asset: assets/fonts/DancingScript-regular.ttf
+      - asset: assets/fonts/DancingScript-Bold.ttf
+        weight: 700

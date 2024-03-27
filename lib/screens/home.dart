@@ -35,21 +35,67 @@ class _HomeScreenState extends State<HomeScreen> {
             // Important: Remove any padding from the ListView.
             padding: EdgeInsets.zero,
             children: [
-              const DrawerHeader(
-                child: Text('Drawer Header'),
+              DrawerHeader(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(4),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .primary
+                              .withAlpha(150),
+                          width: 3,
+                        ),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          "https://www.rollingstone.com/wp-content/uploads/2023/02/elon-twitter-new-ceo.jpg?w=1581&h=1054&crop=1",
+                        ),
+                        maxRadius: 42,
+                      ),
+                    ),
+                    const Gap(20),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Elon Musk",
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                        Text(
+                          "Kullanici",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onBackground
+                                      .withAlpha(150)),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.home,
                 ),
                 title: const Text('Home'),
                 selected: true,
+                // enabled: false,
                 onTap: () {
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.train,
                 ),
                 title: const Text('Hakkimizda'),
@@ -59,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const Divider(),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.home,
                 ),
                 title: const Text('Kategoriler'),
@@ -68,18 +114,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
               ListTile(
-                leading: Icon(
+                leading: const Icon(
                   Icons.train,
                 ),
                 title: const Text('Markalar'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
+                onTap: () => context.push("/brands"),
               ),
-              Divider(),
+              const Divider(),
               ListTile(
-                leading: Icon(
-                  Icons.train,
+                leading: const Icon(
+                  Icons.help_center,
                 ),
                 title: const Text('Iletisim'),
                 onTap: () {
@@ -223,6 +267,51 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   },
                   child: const Text("Temel Ayarlar"),
+                ),
+                const Gap(10),
+                OutlinedButton(
+                  onPressed: () {
+                    context.push("/brands");
+                  },
+                  child: const Text("Markalar"),
+                ),
+                const Gap(10),
+                OutlinedButton(
+                  onPressed: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) => ListView(
+                        padding: const EdgeInsets.symmetric(vertical: 35),
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(18.0),
+                            child: Text(
+                              AppLocalizations.of(context)
+                                  .getTranslate("select-language"),
+                              style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          const Gap(20),
+                          ListTile(
+                              title: const Text("Turkce"),
+                              leading: const Icon(Icons.language),
+                              enabled: clientCubit.state.language != "tr",
+                              subtitle: const Text("Turkish (Turkiye)"),
+                              onTap: () =>
+                                  clientCubit.changeLanguage(language: "tr")),
+                          ListTile(
+                            title: const Text("English"),
+                            enabled: clientCubit.state.language != "en",
+                            leading: const Icon(Icons.language),
+                            subtitle: const Text("English (United States)"),
+                            onTap: () =>
+                                clientCubit.changeLanguage(language: "en"),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
+                  child: const Text("Dil Secimi"),
                 ),
                 const SizedBox(height: 50),
                 const Text("LOVE U ALL"),

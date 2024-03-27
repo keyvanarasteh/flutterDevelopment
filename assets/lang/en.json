@@ -11,5 +11,7 @@
     "remove-cart": "Remove from cart",
     "cart-empty": "No products added to cart.",
     "settings": "Settings",
-    "connection-error": "Please control your internet connection."
+    "connection-error": "Please control your internet connection.",
+    "reload": "Reload",
+    "select-language": "Please select language:"
 }
